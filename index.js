@@ -25,7 +25,7 @@ async function createEmbeddings() {
 
   try {
     // Step 1: Read PDF
-    const pdfBuffer = fs.readFileSync("./resume.pdf");
+    const pdfBuffer = fs.readFileSync("./DnD_BasicRules_2018.pdf");
     const pdfData = await pdf(pdfBuffer);
     console.log(`📄 Extracted ${pdfData.text.length} characters from PDF`);
 
@@ -131,7 +131,7 @@ Question: ${question}
 Answer:`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-3.5-flash",
       contents: prompt,
     });
 
@@ -160,7 +160,7 @@ async function demo() {
   console.log("\n2️⃣ Now asking questions...");
 
   // Ask some questions
-  const questions = ["Tell me about John W. Smith"];
+  const questions = ["What do some characters look like?"];
 
   for (const question of questions) {
     console.log("\n" + "-".repeat(40));
